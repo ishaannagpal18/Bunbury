@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<title></title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
+<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		p {
+			margin-bottom:1.5rem;
+		}
+
+
+		@media (max-width:720px) {
+
+		}
+	</style>
+</head>
+<body style="background-color: #fff; margin: 0; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+<p>Hello <b>{{name}}</b>, </p>
+<p>Thank you for registering with Bunbury Classical | Dharohar, the unplugged virasat. We wish to be the means of preserving, nurturing & celebrating the rich musical legacy of India.</p>
+<p>You are cordially invited to our classical evening on:</p>
+<p>Date: <b>{{date}}</b><br>
+Invitation Code: <b>{{auth_token}}</b><br>
+Venue: <b>INA, Dilli Haat, New Delhi, India</b></p>
+<p>Please consider this email as the confirmation to your registration and as your official invitation pass to the unplugged virasat.</p>
+<p>Looking forward to your presence.</p>
+<p>Musically Yours,<br>
+Team Bunbury</p>
+
+</body>
+</html>

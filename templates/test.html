@@ -1,0 +1,185 @@
+{% extends "layouts.html"%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Certificate
+{% endblock %}
+{% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+<link href="{% static 'css/task1.css'%} " rel="stylesheet">
+<style >
+
+  .padding{
+    padding-top:10%;
+  }
+
+  .cert {
+    background-color: #eee;
+    height: 50vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+
+  .cert {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .cert h2{
+    font-family: 'Abril Fatface', cursive;
+    font-size:4rem;
+  }
+
+
+
+  #restart-btn {
+    background-color: #6ac610;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    padding: 15px 30px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0,0,0,.45);
+    opacity: .85;
+  }
+
+  #restart-btn:hover {
+    opacity: 1;
+    box-shadow: 0px 4px 8px rgba(0,0,0,.25);
+    cursor: pointer;
+  }
+
+  #restart-btn:active {
+    box-shadow: 0px 1px 2px rgba(0,0,0,.65);
+  }
+
+  .container{
+    width:80%;
+  }
+  .button{
+  	display: flex;
+  	place-items: center;
+  	justify-content: center;
+  	height: 100%;
+  }
+  .button button {
+box-shadow: 0 0 30px #000;
+width: 200px;
+height: 50px;
+border-radius: 30px;
+border: 0;
+/* background: linear-gradient(147deg, #434343 0%, #121212 74%); */
+font-weight: bold;
+color: #fff;
+font-size: 1.5em;
+font-family: hubballi;
+border: 2px solid #000;
+margin-bottom: 2%;
+}
+  @keyframes hover{
+  	0%{}
+  	25%{border-right: 150px solid #121212;
+  		border-left: 150px solid #121212;
+  		color: black;
+  		padding: 0;
+  	border-radius: 0px;}
+  	50%{
+  		border: 2px solid #121212;
+  	}
+  	75%{
+  		border-top: 30px solid #121212;
+  		border-bottom: 30px solid #121212;
+  		padding: 0;
+  		display: flex;
+  		place-items: center;
+  		border-radius: 0;
+  	}
+  }
+  .button button:hover{
+  	animation-name: hover;
+  	animation-duration: 0.8s;
+  }
+
+
+  @media screen and (max-width:550px){
+    canvas{
+      display:none;
+    }
+    .cert h2{
+      font-size:2rem;
+    }
+    #restart-btn{
+      padding: 10px 20px;
+    }
+  }
+
+</style>
+{% endblock %}
+{% block content %}
+<div class="padding">
+
+
+
+
+
+<p style="position:absolute; visibility:hidden" id="p">{{bday.name}}</p>
+<img style="position:absolute; visibility:hidden" id="p1" src="/media/{{bday.image}}" alt="">
+<center>
+<div class="row">
+
+  <div class="col-md-6">
+    <center>
+    <div class="form">
+      <form class="form" action="" method="post" enctype="multipart/form-data">
+      <div class="form-inner">
+        <h2>Birthday Post  <i class="fa fa-upload"></i></h2>
+        {% csrf_token %}
+        <label for="">Name</label>
+        <input type="text" name="name" value="" required><br><br>
+        <label for="">Image</label>
+        <input type="file" name="image" value="" required><br><br>
+        <div class="btn-group">
+          <input type="submit" class="btn1 btn btn--primary" value="Upload">
+        </div>
+      </div>
+    </form>
+      <!-- <form class="" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="">Name</label>
+        <input type="text" name="name" value="" required><br>
+        <label for="">Image</label>
+        <input type="file" name="image" value="" required><br>
+        <button class="cta-btn" type="submit" name="submit">Submit</button>
+      </form> -->
+    </div>
+
+    </center>
+  </div>
+  <div class="col-md-6">
+    <div class="container">
+            <u><b><h1 class="inst-h1">{{bday.name}}'s Birthday</h1></b></u>
+            <div class="button">
+              <!-- <a class="cta-btn" href="" id="download-btn">Download</a> -->
+              <button type="button" name="button"><a href="" id="download-btn">Download</a></button>
+            </div>
+
+            <canvas style="background:url(/static/img/bday.png); width:500px; height:500px; background-size: cover;" id="canvas" height="500px" width="500px"></canvas>
+        </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/bday.js' %} "></script>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/static/img/bg-img/breadcumb3.jpg);">
+        <div class="bradcumbContent">
+            <p></p>
+            <h2>Register</h2>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Login Area Start ##### -->
+    <section class="login-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="login-content">
+                        <h3>Welcome!</h3>
+                        <!-- Login Form -->
+                        <div class="login-form">
+                            <form action="/register" method="post">
+                              {%  csrf_token %}
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Name</label>
+                                  <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name" required>
+                              </div>
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Email address</label>
+                                  <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail" required>
+                                  <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
+                              </div>
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Contact No</label>
+                                  <input pattern="[1-9]{1}[0-9]{9}" name="contact" type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your contact number" required>
+                              </div>
+                              <div class="form-group">
+                                  <label for="exampleInputPassword1">Whatsapp No</label>
+                                  <input pattern="[1-9]{1}[0-9]{9}" name="whatsapp" type="tel" class="form-control" id="exampleInputPassword1" placeholder="Enter your whatsapp number" required>
+                              </div>
+                              <div class="form-group">
+                                  <label for="exampleInputPassword1">Age</label>
+                                  <select id="student_class" name="age" class="form-control" placeholder="Select your age group" required>
+
+                                    <option value="18-25">18-25</option>
+                                    <option value="25-30">25-30</option>
+                                    <option value="30-35">30-35</option>
+                                    <option value="35+">35+</option>
+
+
+
+                                  </select>
+                              </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">City</label>
+                                    <input name="city" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Date</label>
+                                    <select id="student_class" name="date" class="form-control" placeholder="Select the event date" required>
+
+                                      <option value="11th November 2022">11th November 2022</option>
+
+
+
+
+                                    </select>
+                                </div>
+
+
+                                <button type="submit" class="btn oneMusic-btn mt-30">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
